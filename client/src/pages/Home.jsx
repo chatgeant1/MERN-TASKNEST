@@ -19,10 +19,12 @@ export default function HomePage(){
 
     const [title, setTitle] = useState("")
 
-    const load = async () => setData(
-        (await api.get("/tasks", {params:q}))
-        .data
-    )
+const load = async () => {
+    const res = await api.get("/tasks", { params: q });
+    console.log(res.data); // log JSON
+    setData(res.data);     // set state đúng
+    console.log(import.meta.env.VITE_API_BASE)
+}
     
     useEffect(
         () => {load()}, [q]
