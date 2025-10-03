@@ -12,8 +12,23 @@ import taskRoutes from "./src/routes/task.routes.js"
 dotenv.config()
 const app = express()
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,        // Vercel FE
+  'http://localhost:5173'       // Local dev
+];
 
-app.use(cors({ origin: process.env.CLIENT_URL }))
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // Postman or curl
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json())
 app.use(morgan("dev"))
 
