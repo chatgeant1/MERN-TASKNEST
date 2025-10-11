@@ -4,7 +4,7 @@
 
 import mongoose from "mongoose";
 
-// TaskSchema(title, status, dueDate)
+// Khai báo cấu trúc collection MongoDB - TaskSchema(title, status, dueDate)
 const TaskSchema = new mongoose.Schema({
     title: {
         type: String,

@@ -40,8 +40,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 app.use("/api/tasks", taskRoutes)
+
 const PORT = process.env.PORT || 5000 
-app.listen(PORT, () => console.log(`API on ${process.env.PORT}`))
+
+app.listen(PORT, () => { console.log(`API on ${process.env.PORT}`)})
 
 
 

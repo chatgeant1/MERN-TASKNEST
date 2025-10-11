@@ -102,7 +102,7 @@ export const remove = async (req, res) => {
     res.json({message: "Deleted"})
 }
 
-// Test nhanh (Thunder Client)
+// Test nhanh
 // • POST /api/task body: { "title": "Learn MERN", "status":"pending","dueDate": "2025-09-30" }
 // • GET /api/todos?status=pending&page=1&limit=5
 // • GET /api/todos/stats
